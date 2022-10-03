@@ -6,7 +6,7 @@
 #include <ompl/base/spaces/SO3StateSpace.h>
 #include <ompl/geometric/planners/rrt/RRTConnect.h>
 
-#include "mav_companion_api/TrajPlanner.h"
+#include "B_Spline_Traj_Planner/TrajPlanner.h"
 
 namespace ob = ompl::base;
 namespace og = ompl::geometric;
@@ -18,7 +18,7 @@ class PathPlan {
 
         void initStart();
         void setGoal(double x, double y, double z);
-        void setStates(mav_companion_api::TrajPlanner::Request req);
+        void setStates(B_Spline_Traj_Planner::TrajPlanner::Request req);
         std::vector<std::vector<double>> plan();
         void printMsg();
 

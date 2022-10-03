@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>B-Spline-Traj-Planner</name>
+  <name>B_Spline_Traj_Planner</name>
   <version>0.0.0</version>
-  <description>The B-Spline-Traj-Planner package</description>
+  <description>The B_Spline_Traj_Planner package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->

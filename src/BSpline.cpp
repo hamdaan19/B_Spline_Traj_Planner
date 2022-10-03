@@ -1,4 +1,4 @@
-#include "mav_companion_api/BSpline.h"
+#include "B_Spline_Traj_Planner/BSpline.h"
 
 
 Eigen::RowVectorXd BSpline::getStamps(int lenOfArr){

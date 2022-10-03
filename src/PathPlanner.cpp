@@ -9,7 +9,7 @@
 #include <geometry_msgs/Point.h>
 #include <geometry_msgs/PoseStamped.h>
 
-#include "mav_companion_api/PathPlanner.h"
+#include "B_Spline_Traj_Planner/PathPlanner.h"
 
 
 bool isStateValid(const ob::State *state){
@@ -67,7 +67,7 @@ PathPlan::PathPlan(){
     pdef->setStartAndGoalStates(start, goal);
 }
 
-void PathPlan::setStates(mav_companion_api::TrajPlanner::Request req) {
+void PathPlan::setStates(B_Spline_Traj_Planner::TrajPlanner::Request req) {
 
     // Set Start State
     ob::ScopedState<ob::SE3StateSpace> start(space);

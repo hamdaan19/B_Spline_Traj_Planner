@@ -21,9 +21,9 @@
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_deriv.h>
 
-#include "mav_companion_api/PathPlanner.h"
-#include "mav_companion_api/BSpline.h"
-#include "mav_companion_api/TrajOpt.h"
+#include "B_Spline_Traj_Planner/PathPlanner.h"
+#include "B_Spline_Traj_Planner/BSpline.h"
+#include "B_Spline_Traj_Planner/TemporalFunc.h"
 
 #include "matplotlibcpp.h"
 namespace plt = matplotlibcpp;
@@ -35,7 +35,7 @@ int DEGREE_OF_TEMPORAL_CURVE = 3;
 int NUMBER_OF_PIECES = 3; 
 int NUMBER_OF_INTERVALS = NUMBER_OF_PIECES - 1; 
 
-bool service_cb(mav_companion_api::TrajPlanner::Request &req, mav_companion_api::TrajPlanner::Response &res);
+bool service_cb(B_Spline_Traj_Planner::TrajPlanner::Request &req, B_Spline_Traj_Planner::TrajPlanner::Response &res);
 
 double objectiveFunc(const std::vector<double> &alpha, std::vector<double> &grad, void *more_data);
 double monoConstraint(const std::vector<double> &alpha, std::vector<double> &grad, void *more_data);
@@ -363,7 +363,7 @@ int main(int argc, char **argv) {
 }
 
 
-bool service_cb(mav_companion_api::TrajPlanner::Request &req, mav_companion_api::TrajPlanner::Response &res) {
+bool service_cb(B_Spline_Traj_Planner::TrajPlanner::Request &req, B_Spline_Traj_Planner::TrajPlanner::Response &res) {
     planner.setStates(req);
     
     trajectory_msgs::MultiDOFJointTrajectory traj_msg;

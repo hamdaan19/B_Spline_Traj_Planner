@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(B-Spline-Traj-Planner)
+project(B_Spline_Traj_Planner)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -57,10 +57,10 @@ include_directories(
 
 add_executable(
   trajPlannerServer
-  src/traj_planner.cpp
+  src/PathPlanner.cpp
   src/traj_planner_server.cpp
   src/BSpline.cpp
-  src/TrajOpt.cpp
+  src/TemporalFunc.cpp
 )
 
 target_link_libraries(
@@ -76,4 +76,4 @@ target_link_libraries(
     -lpython3.8
 )
 
-add_dependencies(trajPlannerServer B-Spline-Traj-Planner_gencpp)
+add_dependencies(trajPlannerServer B_Spline_Traj_Planner_gencpp)

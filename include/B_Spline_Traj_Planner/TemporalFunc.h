@@ -3,7 +3,7 @@
 #include <math.h>
 #include <nlopt.hpp>
 #include <gsl/gsl_poly.h>
-#include "mav_companion_api/BSpline.h"
+#include "B_Spline_Traj_Planner/BSpline.h"
 
 typedef struct {
     Spline3D H;
@@ -50,32 +50,3 @@ class GFunc {
         int checkWhichTimeSegment(double t);
 };
 
-class Optimizer {
-    public:
-
-        Optimizer(unsigned n, std::vector<double> lower_bounds);
-
-        void setConstraintFunction(
-            constraint_data data, 
-            double (*constraint_func)(
-                const std::vector<double> &, 
-                std::vector<double> &, 
-                void *
-            )
-        );
-
-        void setObjectiveFunction(
-            constraint_data data,
-            double (*objective_func)(
-                const std::vector<double>&,
-                std::vector<double>&,
-                void*
-            )
-        );
-
-        void startOptimization(std::vector<double>& alpha, double& min);
-
-    private: 
-        double xtol_rel = 1e-1;  
-        nlopt::opt opt;
-};
